@@ -6,7 +6,7 @@
 ### 3. Transform XML to a JSON and return the data
 
 
-### The following two I've ignored this time :-)
+### I've ignored this time this time :-)
 #### 4. If you use a library or a framework, provide explanation why it is needed. Try to minimize the use of libraries.
 #### 5. Pretend that this service is something that will be delivered to customers and should be maintained for many years, think about good code structure and documentation
 
