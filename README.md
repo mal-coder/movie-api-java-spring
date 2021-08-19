@@ -2,8 +2,7 @@
 
 ### 1. Create a REST service that accepts string “title” as input
 
-### 2. Send request to a REST service for XML (important to use XML here, no cheating with Json directly). Here is an example for a query for “lost”: http://www.omdbapi.com/?t=lost&r=xml&apikey=<API key>
-### You can use any other open REST service if it provides an XML output. If you do, please provide instructions for the configuration (if API keys are required, etc.)
+### 2. Send request to a REST service for XML (important to use XML here, no cheating with Json directly). Here is an example for a query for “lost”: http://www.omdbapi.com/?t=lost&r=xml&apikey=<API key>. You can use any other open REST service if it provides an XML output. If you do, please provide instructions for the configuration (if API keys are required, etc.)
 ### 3. Transform XML to a JSON and return the data
 
 
