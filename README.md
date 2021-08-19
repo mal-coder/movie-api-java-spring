@@ -21,3 +21,8 @@ Using your favorite IDE run:
 ```
 .src/main/java/com/movie/api/MovieApplication.java
 ```
+Then using Postman or other magic tool go for:
+```
+http://localhost:8080/movie?title=dark
+```
+**BEFORE** you do that, don't forget to add **Authorization** header: <Bearer **API_KEY**>
