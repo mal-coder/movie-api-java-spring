@@ -13,7 +13,8 @@ public class MovieDataRequester {
     static Logger logger = LoggerFactory.getLogger(MovieDataRequester.class);
     static OkHttpClient client = new OkHttpClient();
 
-    static String run(String url) {
+    static String run(String movieTitle) {
+        String url = System.getenv("XML_API_URI") + "&t=" + movieTitle;
         Request request = new Request.Builder()
                 .url(url)
                 .build();

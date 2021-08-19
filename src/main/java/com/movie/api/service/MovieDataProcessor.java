@@ -13,8 +13,7 @@ public class MovieDataProcessor {
     static Logger logger = LoggerFactory.getLogger(MovieDataProcessor.class);
 
     public static JsonNode getMovieData(String movieTitle) {
-        String url = System.getenv("XML_API_URI") + "&t=" + movieTitle;
-        String data = MovieDataRequester.run(url);
+        String data = MovieDataRequester.run(movieTitle);
         XmlMapper xmlMapper = new XmlMapper();
         JsonNode movieData = null;
         try {
