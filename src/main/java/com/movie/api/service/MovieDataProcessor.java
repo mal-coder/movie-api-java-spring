@@ -6,17 +6,24 @@ import com.movie.api.exceptions.InternalServerError;
 import com.movie.api.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
 public class MovieDataProcessor {
-    static Logger logger = LoggerFactory.getLogger(MovieDataProcessor.class);
+    private Logger logger = LoggerFactory.getLogger(MovieDataProcessor.class);
 
-    public static JsonNode getMovieData(String movieTitle) {
+    @Autowired
+    private MovieDataRequester movieDataRequester;
+
+    private JsonNode movieData;
+
+    public JsonNode getMovieData(String movieTitle) {
         String url = System.getenv("XML_API_URI") + "&t=" + movieTitle;
-        String data = MovieDataRequester.run(url);
+        String data = movieDataRequester.run(url);
         XmlMapper xmlMapper = new XmlMapper();
-        JsonNode movieData = null;
         try {
             movieData = xmlMapper.readTree(data.getBytes()).get("movie");
         } catch (IOException e) {

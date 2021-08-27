@@ -6,14 +6,16 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
 public class MovieDataRequester {
-    static Logger logger = LoggerFactory.getLogger(MovieDataRequester.class);
-    static OkHttpClient client = new OkHttpClient();
+    private Logger logger = LoggerFactory.getLogger(MovieDataRequester.class);
+    private OkHttpClient client = new OkHttpClient();
 
-    static String run(String url) {
+    public String run(String url) {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -24,7 +26,7 @@ public class MovieDataRequester {
                 logger.error(response + response.body().string());
                 throw new InternalServerError("Error while processing data. Please try again later.");
             }
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             logger.error(e.toString());
             throw new InternalServerError("Error while processing data. Please try again later.");
         }

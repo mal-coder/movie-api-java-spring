@@ -2,10 +2,13 @@ package com.movie.api.auth;
 
 import com.movie.api.exceptions.BadRequestException;
 import com.movie.api.exceptions.UnauthorizedException;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TokenAuth {
+    private String systemToken = System.getenv("API_KEY");
 
-    public static void validateToken(String authToken) {
+    public void validateToken(String authToken) {
         if (authToken.isBlank() || !authToken.toLowerCase().contains("bearer")) {
             throw new BadRequestException("'Bearer' keyword not provided.");
         } else if (authToken.split("\\s+").length != 2) {
@@ -15,8 +18,7 @@ public class TokenAuth {
         }
     }
 
-    private static Boolean compareTokens(String authToken) {
-        String systemToken = System.getenv("API_KEY");
+    private Boolean compareTokens(String authToken) {
         return systemToken.equals(authToken.split("\\s+")[1]);
     }
 
