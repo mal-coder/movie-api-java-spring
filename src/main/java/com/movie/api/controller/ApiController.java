@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiController {
     @Autowired
     private TokenAuth tokenAuth;
+
     @Autowired
     private MovieDataProcessor movieDataProcessor;
 
